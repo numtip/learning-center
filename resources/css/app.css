@@ -1,0 +1,58 @@
+/* ================= GOOGLE FONTS ================= */
+@import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&family=IBM+Plex+Sans+Thai:wght@100;200;300;400;500;600;700&family=Mitr:wght@200;300;400;500;600;700&family=Playpen+Sans+Thai:wght@100..800&display=swap');
+
+/* ================= TAILWIND ================= */
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* ================= GLOBAL THAI FONT ================= */
+html, body {
+  font-family: "Mitr", sans-serif;
+  font-weight: 400;
+  color: #1b5e20;
+}
+
+/* ================= ENGLISH FONT ================= */
+.en,
+.eng,
+.english {
+  font-family: "Bebas Neue", sans-serif;
+  letter-spacing: 1.5px;
+}
+/* ================= MITR FONT WEIGHTS ================= */
+.mitr-extralight {
+  font-family: "Mitr", sans-serif;
+  font-weight: 200;
+  font-style: normal;
+}
+
+.mitr-light {
+  font-family: "Mitr", sans-serif;
+  font-weight: 300;
+  font-style: normal;
+}
+
+.mitr-regular {
+  font-family: "Mitr", sans-serif;
+  font-weight: 400;
+  font-style: normal;
+}
+
+.mitr-medium {
+  font-family: "Mitr", sans-serif;
+  font-weight: 500;
+  font-style: normal;
+}
+
+.mitr-semibold {
+  font-family: "Mitr", sans-serif;
+  font-weight: 600;
+  font-style: normal;
+}
+
+.mitr-bold {
+  font-family: "Mitr", sans-serif;
+  font-weight: 700;
+  font-style: normal;
+}
