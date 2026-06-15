@@ -1,0 +1,49 @@
+# Git and IDE
+.git
+.gitignore
+.gitattributes
+.editorconfig
+.idea
+.vscode
+.fleet
+*.md
+!docs/DEPLOYMENT_LEARNING_CENTER.md
+
+# Environment and secrets (never bake into image)
+.env
+.env.*
+!.env.example
+!.env.production.example
+!.env.docker.example
+
+# PHP / Node dependencies (installed during build)
+/vendor
+/node_modules
+
+# Build output (produced during image build)
+/public/build
+/public/hot
+/public/storage
+
+# Laravel runtime / local artifacts
+/storage/*.key
+/storage/logs
+/bootstrap/cache/*.php
+.phpunit.cache
+.phpunit.result.cache
+
+# Tests and dev tooling
+/tests
+/phpunit.xml
+Homestead.json
+Homestead.yaml
+auth.json
+npm-debug.log
+yarn-error.log
+Thumbs.db
+.DS_Store
+
+# Docker context (not needed inside image)
+docker-compose*.yml
+Dockerfile
+.dockerignore
