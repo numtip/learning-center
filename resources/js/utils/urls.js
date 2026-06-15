@@ -1,13 +1,25 @@
 /**
+ * Resolve the Ziggy config object regardless of how @routes injects it.
+ *
+ * Laravel's @routes directive uses `const Ziggy = {...}` in a classic <script>
+ * tag. `const` at the top level of a classic script does NOT become a property
+ * of `window`, but IS accessible as a global identifier.  We therefore try both
+ * `window.Ziggy` (older Ziggy / manual assignment) and the bare `Ziggy` global.
+ */
+function getZiggyConfig() {
+    if (typeof window === 'undefined') return null;
+    // eslint-disable-next-line no-undef
+    return window.Ziggy ?? (typeof Ziggy !== 'undefined' ? Ziggy : null);
+}
+
+/**
  * Path prefix when the app is served under a subpath (from Ziggy / APP_URL).
  */
 export function getAppPathPrefix() {
-    if (typeof window === 'undefined' || !window.Ziggy?.url) {
-        return '';
-    }
-
     try {
-        const pathname = new URL(window.Ziggy.url).pathname.replace(/\/$/, '');
+        const cfg = getZiggyConfig();
+        if (!cfg?.url) return '';
+        const pathname = new URL(cfg.url).pathname.replace(/\/$/, '');
         return pathname === '/' ? '' : pathname;
     } catch {
         return '';
@@ -40,13 +52,15 @@ export function appUrl(path) {
  * Build a public asset URL respecting ASSET_URL / subpath deployment.
  */
 export function assetUrl(path) {
-    const base = typeof window !== 'undefined' && window.Ziggy?.url
-        ? String(window.Ziggy.url).replace(/\/$/, '')
-        : '';
-
-    const normalized = path.startsWith('/') ? path : `/${path}`;
-
-    return `${base}${normalized}`;
+    try {
+        const cfg = getZiggyConfig();
+        const base = cfg?.url ? String(cfg.url).replace(/\/$/, '') : '';
+        const normalized = path.startsWith('/') ? path : `/${path}`;
+        return `${base}${normalized}`;
+    } catch {
+        const normalized = path.startsWith('/') ? path : `/${path}`;
+        return normalized;
+    }
 }
 
 /**

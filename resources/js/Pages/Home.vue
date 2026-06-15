@@ -119,7 +119,7 @@ const calendarDaysDisplay = computed(() => {
 
 onMounted(async () => {
   try {
-    const slideRes = await fetch('/slides', {
+    const slideRes = await fetch(appUrl('/slides'), {
       headers: {
         'Accept': 'application/json',
         'Content-Type': 'application/json'
