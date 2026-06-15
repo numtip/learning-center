@@ -29,6 +29,8 @@ COPY resources ./resources
 COPY public ./public
 COPY --from=vendor /app/vendor ./vendor
 
+ARG VITE_BASE_PATH=/build/
+ENV VITE_BASE_PATH=${VITE_BASE_PATH}
 RUN npm run build
 
 # -----------------------------------------------------------------------------
