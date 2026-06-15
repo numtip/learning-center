@@ -1,5 +1,21 @@
 # -----------------------------------------------------------------------------
-# Stage 1: Frontend assets (Vite + Vue)
+# Stage 1: PHP dependencies (required by Vite for Ziggy)
+# -----------------------------------------------------------------------------
+FROM php:8.2-cli AS vendor
+
+RUN apt-get update && apt-get install -y git unzip zip libzip-dev \
+    && docker-php-ext-install zip \
+    && rm -rf /var/lib/apt/lists/*
+
+COPY --from=composer:2 /usr/bin/composer /usr/bin/composer
+
+WORKDIR /app
+
+COPY composer.json composer.lock ./
+RUN composer install --no-dev --no-scripts --no-autoloader --no-interaction
+
+# -----------------------------------------------------------------------------
+# Stage 2: Frontend assets (Vite + Vue)
 # -----------------------------------------------------------------------------
 FROM node:20-alpine AS frontend
 
@@ -11,11 +27,12 @@ RUN npm ci
 COPY vite.config.js postcss.config.js tailwind.config.js ./
 COPY resources ./resources
 COPY public ./public
+COPY --from=vendor /app/vendor ./vendor
 
 RUN npm run build
 
 # -----------------------------------------------------------------------------
-# Stage 2: PHP application runtime
+# Stage 3: PHP application runtime
 # -----------------------------------------------------------------------------
 FROM php:8.2-fpm
 
@@ -34,6 +51,8 @@ COPY composer.json composer.lock ./
 RUN composer install --no-dev --optimize-autoloader --no-interaction --no-scripts
 
 COPY . .
+
+COPY --from=vendor /app/vendor ./vendor
 
 RUN composer install --no-dev --optimize-autoloader --no-interaction \
     && composer clear-cache
