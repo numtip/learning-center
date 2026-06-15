@@ -7,7 +7,7 @@ import { appUrl, assetUrl } from '@/utils/urls.js'
 
 const page = usePage()
 const user = computed(() => page.props.auth?.user)
-const logoUrl = computed(() => page.props.logoUrl ?? assetUrl('/build/assets/HeroSection/06.png'))
+const logoUrl = computed(() => page.props.logoUrl ?? assetUrl('/HeroSection/06.png'))
 
 const isHome = computed(() => page.url === '/')
 

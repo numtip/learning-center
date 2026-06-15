@@ -7,7 +7,7 @@
         <title inertia>Web Application for Learning Centers</title>
 
         <!-- Favicon -->
-        <link rel="icon" type="image/png" href="{{ asset('build/assets/HeroSection/06.png') }}">
+        <link rel="icon" type="image/png" href="{{ asset('HeroSection/06.png') }}">
 
         <!-- Fonts -->
         <link rel="preconnect" href="https://fonts.bunny.net">

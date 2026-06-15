@@ -33,7 +33,7 @@ public function share(Request $request): array
 
         return array_merge(parent::share($request), [
             'assetBase' => $assetBase,
-            'logoUrl' => asset('build/assets/HeroSection/06.png'),
+            'logoUrl' => asset('HeroSection/06.png'),
             'auth' => [
                 'user' => $request->user(),
             ],
