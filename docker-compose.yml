@@ -3,6 +3,8 @@ services:
     build:
       context: .
       dockerfile: Dockerfile
+      args:
+        VITE_BASE_PATH: /learning-center/build/
     container_name: learning-center-app
     restart: unless-stopped
     env_file:
@@ -69,6 +71,8 @@ services:
     build:
       context: .
       dockerfile: Dockerfile
+      args:
+        VITE_BASE_PATH: /learning-center/build/
     container_name: learning-center-scheduler
     restart: unless-stopped
     env_file:
