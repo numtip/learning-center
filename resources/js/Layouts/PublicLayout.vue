@@ -1,15 +1,18 @@
 <script setup>
 import { ref, onMounted, onUnmounted, computed, watch } from 'vue'
 import { Link, usePage, router } from '@inertiajs/vue3'
+import { route } from 'ziggy-js'
 import Swal from 'sweetalert2'
+import { assetUrl } from '@/utils/urls.js'
 
 const page = usePage()
 const user = computed(() => page.props.auth?.user)
+const logoUrl = computed(() => page.props.logoUrl ?? assetUrl('/build/assets/HeroSection/06.png'))
 
 const isHome = computed(() => page.url === '/')
 
 const logout = () => {
-  router.post('/logout')
+  router.post(route('logout'))
 }
 
 const requireLogin = (url) => {
@@ -33,7 +36,7 @@ const requireLogin = (url) => {
       }
     }).then((result) => {
       if (result.isConfirmed) {
-        router.visit('/login')
+        router.visit(route('login'))
       }
     })
   } else {
@@ -84,7 +87,7 @@ onUnmounted(() => {
           <div class="logo-wrapper-left">
             <Link href="/" class="nav-logo group-logo">
               <div class="logo-img-wrapper">
-                <img src="/build/assets/HeroSection/06.png" alt="Logo" class="logo-img" />
+                <img :src="logoUrl" alt="Logo" class="logo-img" />
                 <div class="logo-glow"></div>
               </div>
               <div class="logo-text">
@@ -216,7 +219,7 @@ onUnmounted(() => {
 
               <template v-else>
                 <li>
-                  <Link href="/login" class="login-btn">
+                  <Link :href="route('login')" class="login-btn">
                     <span class="btn-text">เข้าสู่ระบบ / สมัครสมาชิก</span>
                     <div class="btn-glow"></div>
                   </Link>
@@ -243,7 +246,7 @@ onUnmounted(() => {
             <button @click="logout" class="mobile-logout-btn">ออกจากระบบ</button>
           </template>
           <template v-else>
-            <Link href="/login" class="mobile-login-btn">เข้าสู่ระบบ / สมัครสมาชิก</Link>
+            <Link :href="route('login')" class="mobile-login-btn">เข้าสู่ระบบ / สมัครสมาชิก</Link>
           </template>
         </div>
 

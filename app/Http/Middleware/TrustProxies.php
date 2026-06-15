@@ -8,15 +8,13 @@ use Illuminate\Http\Request;
 class TrustProxies extends Middleware
 {
     /**
-     * The trusted proxies for this application.
+     * Trust host reverse proxy (127.0.0.1) forwarding to Docker web.
      *
      * @var array<int, string>|string|null
      */
-    protected $proxies;
+    protected $proxies = '*';
 
     /**
-     * The headers that should be used to detect proxies.
-     *
      * @var int
      */
     protected $headers =
@@ -24,5 +22,6 @@ class TrustProxies extends Middleware
         Request::HEADER_X_FORWARDED_HOST |
         Request::HEADER_X_FORWARDED_PORT |
         Request::HEADER_X_FORWARDED_PROTO |
+        Request::HEADER_X_FORWARDED_PREFIX |
         Request::HEADER_X_FORWARDED_AWS_ELB;
 }

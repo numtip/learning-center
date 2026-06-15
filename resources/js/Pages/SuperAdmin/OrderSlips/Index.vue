@@ -3,6 +3,7 @@ import AdminLayout from '@/Layouts/AdminLayout.vue'
 import { ref } from 'vue'
 import { router } from '@inertiajs/vue3'
 import axios from 'axios'
+import { storageUrl } from '@/utils/urls.js'
 
 const props = defineProps({
   orders: Object
@@ -100,7 +101,7 @@ const handleFileUpload = async (event) => {
 // จัดการ URL ของรูปภาพ
 const getSlipUrl = (img) => {
   if (!img || img === 'undefined' || img === 'null') return null
-  return img.startsWith('http') || img.startsWith('data:image') ? img : `/storage/${img}`
+  return storageUrl(img)
 }
 
 // แสดงรูปสำรองเมื่อภาพโหลดไม่ขึ้น

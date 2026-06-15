@@ -29,7 +29,11 @@ class HandleInertiaRequests extends Middleware
      */
 public function share(Request $request): array
     {
+        $assetBase = rtrim((string) (config('app.asset_url') ?: config('app.url')), '/');
+
         return array_merge(parent::share($request), [
+            'assetBase' => $assetBase,
+            'logoUrl' => asset('build/assets/HeroSection/06.png'),
             'auth' => [
                 'user' => $request->user(),
             ],

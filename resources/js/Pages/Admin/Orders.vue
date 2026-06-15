@@ -87,7 +87,7 @@
               <div class="slip-title">📸 หลักฐานการชำระเงิน</div>
               <img
                 v-if="order.slip_image"
-                :src="order.slip_image.startsWith('http') ? order.slip_image : `/storage/${order.slip_image}`"
+                :src="storageUrl(order.slip_image)"
                 class="slip-img"
                 alt="Slip Image"
               />
@@ -152,6 +152,7 @@ import { ref } from 'vue'
 import { router } from '@inertiajs/vue3'
 import axios from 'axios'
 import AdminLayout from '@/Layouts/AdminLayout.vue'
+import { storageUrl } from '@/utils/urls.js'
 
 const props = defineProps({
   orders: Object
