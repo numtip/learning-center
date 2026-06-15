@@ -9,7 +9,7 @@ const page = usePage()
 const user = computed(() => page.props.auth?.user)
 const logoUrl = computed(() => page.props.logoUrl ?? assetUrl('/HeroSection/06.png'))
 
-const isHome = computed(() => page.url === '/')
+const isHome = computed(() => page.component === 'Home')
 
 const logout = () => {
   router.post(route('logout'))
