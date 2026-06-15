@@ -1,4 +1,5 @@
 <script setup>
+import { appUrl } from '@/utils/urls.js'
 import { usePage, Link, Head } from '@inertiajs/vue3'
 import PublicLayout from '@/Layouts/PublicLayout.vue'
 import { computed } from 'vue'
@@ -29,7 +30,7 @@ const formatDate = (dateString) => {
 
       <div class="main-content" v-if="news && news.title">
         <div class="nav-bar">
-          <Link href="/news/pr" class="btn-back-glass">
+          <Link :href="appUrl('/news/pr')" class="btn-back-glass">
             <span class="icon">←</span> ย้อนกลับไปหน้าข่าวสาร
           </Link>
           <div class="share-info">PR News MJU</div>
@@ -68,7 +69,7 @@ const formatDate = (dateString) => {
           <div class="error-icon">🍃</div>
           <h2>ไม่พบข้อมูลข่าวสาร</h2>
           <p>ลิงก์ที่คุณเรียกใช้ไม่มีข้อมูลในระบบ หรือข้อมูลกำลังโหลด...</p>
-          <Link href="/news/pr" class="btn-home-primary">กลับสู่หน้ารวมข่าวสาร</Link>
+          <Link :href="appUrl('/news/pr')" class="btn-home-primary">กลับสู่หน้ารวมข่าวสาร</Link>
         </div>
       </div>
     </div>

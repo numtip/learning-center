@@ -1,5 +1,6 @@
 <script setup>
 import { Head, Link } from '@inertiajs/vue3'
+import { appUrl } from '@/utils/urls.js'
 // เปลี่ยนชื่อ AdminLayout ตามไฟล์ Layout จริงของคุณ
 import AdminLayout from '@/Layouts/AdminLayout.vue'
 
@@ -79,7 +80,7 @@ const hubItems = [
             </div>
           </div>
 
-          <Link :href="item.link" class="card-footer">
+          <Link :href="appUrl(item.link)" class="card-footer">
             <span class="footer-text">เข้าสู่ระบบจัดการเนื้อหา</span>
             <div class="arrow-btn">
               <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" viewBox="0 0 16 16">

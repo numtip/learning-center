@@ -1,4 +1,5 @@
 <script setup>
+import { appUrl } from '@/utils/urls.js'
 import { ref, computed } from 'vue'
 import { Link, usePage, router } from '@inertiajs/vue3'
 
@@ -77,7 +78,7 @@ const toggleTheme = () => {
         <ul class="menu-list">
 
           <li class="nav-item">
-            <Link :href="`${base}/dashboard`" class="nav-link color-blue" :class="{ active: isActive(`${base}/dashboard`) }">
+            <Link :href="appUrl(`${base}/dashboard`)" class="nav-link color-blue" :class="{ active: isActive(`${base}/dashboard`) }">
               <div class="icon-cube"><span class="emoji">🚀</span></div>
               <span v-if="!collapsed" class="nav-text">แดชบอร์ดภาพรวม</span>
             </Link>
@@ -95,14 +96,14 @@ const toggleTheme = () => {
             </div>
             <div class="submenu-wrapper" :style="{ maxHeight: openBiz && !collapsed ? '500px' : '0' }">
               <ul class="submenu color-orange">
-                <li><Link href="/admin/orders" class="sub-link" :class="{ active: isActive('/admin/orders') }"><span class="sub-emoji">📦</span> <span class="sub-text">คำสั่งซื้อสินค้า</span></Link></li>
-                <li><Link href="/admin/products" class="sub-link" :class="{ active: isActive('/admin/products') }"><span class="sub-emoji">🥑</span> <span class="sub-text">คลังสินค้าเกษตร</span></Link></li>
-                <li><Link href="/admin/booking" class="sub-link" :class="{ active: isActive('/admin/booking') }"><span class="sub-emoji">🎟️</span> <span class="sub-text">จองกิจกรรม</span></Link></li>
-                <li><Link href="/booking-calendar" class="sub-link" :class="{ active: isActive('/booking-calendar') }"><span class="sub-emoji">📆</span> <span class="sub-text">ปฏิทินคิวงาน</span></Link></li>
-                <li><Link :href="`${base}/promotions`" class="sub-link" :class="{ active: isActive(`${base}/promotions`) }"><span class="sub-emoji">🔥</span> <span class="sub-text">จัดการโปรโมชัน</span></Link></li>
+                <li><Link :href="appUrl('/admin/orders')" class="sub-link" :class="{ active: isActive('/admin/orders') }"><span class="sub-emoji">📦</span> <span class="sub-text">คำสั่งซื้อสินค้า</span></Link></li>
+                <li><Link :href="appUrl('/admin/products')" class="sub-link" :class="{ active: isActive('/admin/products') }"><span class="sub-emoji">🥑</span> <span class="sub-text">คลังสินค้าเกษตร</span></Link></li>
+                <li><Link :href="appUrl('/admin/booking')" class="sub-link" :class="{ active: isActive('/admin/booking') }"><span class="sub-emoji">🎟️</span> <span class="sub-text">จองกิจกรรม</span></Link></li>
+                <li><Link :href="appUrl('/booking-calendar')" class="sub-link" :class="{ active: isActive('/booking-calendar') }"><span class="sub-emoji">📆</span> <span class="sub-text">ปฏิทินคิวงาน</span></Link></li>
+                <li><Link :href="appUrl(`${base}/promotions`)" class="sub-link" :class="{ active: isActive(`${base}/promotions`) }"><span class="sub-emoji">🔥</span> <span class="sub-text">จัดการโปรโมชัน</span></Link></li>
                 <template v-if="isSuperAdmin">
-                  <li><Link href="/superadmin/order-slips" class="sub-link" :class="{ active: isActive('/superadmin/order-slips') }"><span class="sub-emoji">🧾</span> <span class="sub-text">สลิปโอนเงิน</span></Link></li>
-                  <li><Link href="/superadmin/plot-fees" class="sub-link" :class="{ active: isActive('/superadmin/plot-fees') }"><span class="sub-emoji">🪙</span> <span class="sub-text">ค่าธรรมเนียม</span></Link></li>
+                  <li><Link :href="appUrl('/superadmin/order-slips')" class="sub-link" :class="{ active: isActive('/superadmin/order-slips') }"><span class="sub-emoji">🧾</span> <span class="sub-text">สลิปโอนเงิน</span></Link></li>
+                  <li><Link :href="appUrl('/superadmin/plot-fees')" class="sub-link" :class="{ active: isActive('/superadmin/plot-fees') }"><span class="sub-emoji">🪙</span> <span class="sub-text">ค่าธรรมเนียม</span></Link></li>
                 </template>
               </ul>
             </div>
@@ -120,17 +121,17 @@ const toggleTheme = () => {
               </div>
               <div class="submenu-wrapper" :style="{ maxHeight: openWeb && !collapsed ? '500px' : '0' }">
                 <ul class="submenu color-purple">
-                  <li><Link href="/superadmin/home/slides" class="sub-link" :class="{ active: isActive('/superadmin/home/slides') }"><span class="sub-emoji">🖼️</span> <span class="sub-text">แบนเนอร์หน้าแรก</span></Link></li>
-                  <li><Link href="/superadmin/home/videos" class="sub-link" :class="{ active: isActive('/superadmin/home/videos') }"><span class="sub-emoji">🎬</span> <span class="sub-text">วิดีโอแนะนำ</span></Link></li>
-                  <li><Link href="/superadmin/pr" class="sub-link" :class="{ active: isActive('/superadmin/pr') }"><span class="sub-emoji">📣</span> <span class="sub-text">ข่าวประชาสัมพันธ์</span></Link></li>
-                  <li><Link href="/superadmin/activity-news" class="sub-link" :class="{ active: isActive('/superadmin/activity-news') }"><span class="sub-emoji">🎉</span> <span class="sub-text">ข่าวกิจกรรม</span></Link></li>
-                  <li><Link href="/superadmin/articles-manager" class="sub-link" :class="{ active: isActive('/superadmin/articles-manager') }"><span class="sub-emoji">📖</span> <span class="sub-text">บทความและสาระ</span></Link></li>
+                  <li><Link :href="appUrl('/superadmin/home/slides')" class="sub-link" :class="{ active: isActive('/superadmin/home/slides') }"><span class="sub-emoji">🖼️</span> <span class="sub-text">แบนเนอร์หน้าแรก</span></Link></li>
+                  <li><Link :href="appUrl('/superadmin/home/videos')" class="sub-link" :class="{ active: isActive('/superadmin/home/videos') }"><span class="sub-emoji">🎬</span> <span class="sub-text">วิดีโอแนะนำ</span></Link></li>
+                  <li><Link :href="appUrl('/superadmin/pr')" class="sub-link" :class="{ active: isActive('/superadmin/pr') }"><span class="sub-emoji">📣</span> <span class="sub-text">ข่าวประชาสัมพันธ์</span></Link></li>
+                  <li><Link :href="appUrl('/superadmin/activity-news')" class="sub-link" :class="{ active: isActive('/superadmin/activity-news') }"><span class="sub-emoji">🎉</span> <span class="sub-text">ข่าวกิจกรรม</span></Link></li>
+                  <li><Link :href="appUrl('/superadmin/articles-manager')" class="sub-link" :class="{ active: isActive('/superadmin/articles-manager') }"><span class="sub-emoji">📖</span> <span class="sub-text">บทความและสาระ</span></Link></li>
                 </ul>
               </div>
             </li>
 
             <li class="nav-item">
-              <Link href="/superadmin/centers-hub" class="nav-link color-blue" :class="{ active: isActive('/superadmin/centers-hub') || isActive('/superadmin/history') || isActive('/superadmin/vision') || isActive('/superadmin/personnel') || isActive('/superadmin/centers') }">
+              <Link :href="appUrl('/superadmin/centers-hub')" class="nav-link color-blue" :class="{ active: isActive('/superadmin/centers-hub') || isActive('/superadmin/history') || isActive('/superadmin/vision') || isActive('/superadmin/personnel') || isActive('/superadmin/centers') }">
                 <div class="nav-link-left">
                   <div class="icon-cube"><span class="emoji">🏛️</span></div>
                   <span v-if="!collapsed" class="nav-text">ข้อมูลศูนย์และประวัติ</span>
@@ -148,7 +149,7 @@ const toggleTheme = () => {
               </div>
               <div class="submenu-wrapper" :style="{ maxHeight: openMap && !collapsed ? '500px' : '0' }">
                 <ul class="submenu color-green">
-                  <li><Link href="/superadmin/map" class="sub-link" :class="{ active: isActive('/superadmin/map') }"><span class="sub-emoji">📍</span> <span class="sub-text">จัดการพิกัดแผนที่</span></Link></li>
+                  <li><Link :href="appUrl('/superadmin/map')" class="sub-link" :class="{ active: isActive('/superadmin/map') }"><span class="sub-emoji">📍</span> <span class="sub-text">จัดการพิกัดแผนที่</span></Link></li>
                 </ul>
               </div>
             </li>
@@ -163,7 +164,7 @@ const toggleTheme = () => {
               </div>
               <div class="submenu-wrapper" :style="{ maxHeight: openSystem && !collapsed ? '500px' : '0' }">
                 <ul class="submenu color-pink">
-                  <li><Link href="/superadmin/users" class="sub-link" :class="{ active: isActive('/superadmin/users') }"><span class="sub-emoji">👾</span> <span class="sub-text">ผู้ใช้งานระบบ</span></Link></li>
+                  <li><Link :href="appUrl('/superadmin/users')" class="sub-link" :class="{ active: isActive('/superadmin/users') }"><span class="sub-emoji">👾</span> <span class="sub-text">ผู้ใช้งานระบบ</span></Link></li>
                 </ul>
               </div>
             </li>

@@ -1,4 +1,5 @@
 <script setup>
+import { appUrl } from '@/utils/urls.js'
 import AdminLayout from '@/Layouts/AdminLayout.vue'
 import { Link } from '@inertiajs/vue3'
 </script>
@@ -23,7 +24,7 @@ import { Link } from '@inertiajs/vue3'
           </div>
           <h3 class="card-title">ภาพสไลด์หน้าแรก</h3>
           <p class="card-desc">จัดการและอัปเดต Banner Slide รูปภาพขนาดใหญ่ด้านบนสุดของเว็บไซต์</p>
-          <Link href="/superadmin/home/slides" class="action-btn">
+          <Link :href="appUrl('/superadmin/home/slides')" class="action-btn">
             <span>จัดการสไลด์</span>
             <svg class="arrow-icon" xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" viewBox="0 0 16 16">
               <path fill-rule="evenodd" d="M4.646 1.646a.5.5 0 0 1 .708 0l6 6a.5.5 0 0 1 0 .708l-6 6a.5.5 0 0 1-.708-.708L10.293 8 4.646 2.354a.5.5 0 0 1 0-.708z"/>
@@ -37,7 +38,7 @@ import { Link } from '@inertiajs/vue3'
           </div>
           <h3 class="card-title">วิดีโอแนะนำศูนย์</h3>
           <p class="card-desc">ควบคุมและเปลี่ยนแปลงวิดีโอประชาสัมพันธ์ทั้ง 4 ช่องบนหน้าแรก</p>
-          <Link href="/superadmin/home/videos" class="action-btn">
+          <Link :href="appUrl('/superadmin/home/videos')" class="action-btn">
             <span>จัดการวิดีโอ</span>
             <svg class="arrow-icon" xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" viewBox="0 0 16 16">
               <path fill-rule="evenodd" d="M4.646 1.646a.5.5 0 0 1 .708 0l6 6a.5.5 0 0 1 0 .708l-6 6a.5.5 0 0 1-.708-.708L10.293 8 4.646 2.354a.5.5 0 0 1 0-.708z"/>
@@ -51,7 +52,7 @@ import { Link } from '@inertiajs/vue3'
           </div>
           <h3 class="card-title">ข่าวประชาสัมพันธ์</h3>
           <p class="card-desc">เพิ่ม แก้ไข หรือลบ ข่าวประกาศและข่าวสารประชาสัมพันธ์อย่างเป็นทางการ</p>
-          <Link href="/superadmin/pr" class="action-btn">
+          <Link :href="appUrl('/superadmin/pr')" class="action-btn">
             <span>จัดการข่าว PR</span>
             <svg class="arrow-icon" xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" viewBox="0 0 16 16">
               <path fill-rule="evenodd" d="M4.646 1.646a.5.5 0 0 1 .708 0l6 6a.5.5 0 0 1 0 .708l-6 6a.5.5 0 0 1-.708-.708L10.293 8 4.646 2.354a.5.5 0 0 1 0-.708z"/>
@@ -65,7 +66,7 @@ import { Link } from '@inertiajs/vue3'
           </div>
           <h3 class="card-title">ข่าวกิจกรรม</h3>
           <p class="card-desc">จัดการข้อมูลและรูปภาพของข่าวกิจกรรมทั้งหมดภายในศูนย์การเรียนรู้</p>
-          <Link href="/superadmin/activity-news" class="action-btn">
+          <Link :href="appUrl('/superadmin/activity-news')" class="action-btn">
             <span>จัดการกิจกรรม</span>
             <svg class="arrow-icon" xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" viewBox="0 0 16 16">
               <path fill-rule="evenodd" d="M4.646 1.646a.5.5 0 0 1 .708 0l6 6a.5.5 0 0 1 0 .708l-6 6a.5.5 0 0 1-.708-.708L10.293 8 4.646 2.354a.5.5 0 0 1 0-.708z"/>
@@ -79,7 +80,7 @@ import { Link } from '@inertiajs/vue3'
           </div>
           <h3 class="card-title">บทความและสาระ</h3>
           <p class="card-desc">ระบบสร้างและเผยแพร่บทความ องค์ความรู้ เพื่อแสดงบนหน้าแรกของเว็บไซต์</p>
-          <Link href="/superadmin/articles-manager" class="action-btn">
+          <Link :href="appUrl('/superadmin/articles-manager')" class="action-btn">
             <span>จัดการบทความ</span>
             <svg class="arrow-icon" xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" viewBox="0 0 16 16">
               <path fill-rule="evenodd" d="M4.646 1.646a.5.5 0 0 1 .708 0l6 6a.5.5 0 0 1 0 .708l-6 6a.5.5 0 0 1-.708-.708L10.293 8 4.646 2.354a.5.5 0 0 1 0-.708z"/>

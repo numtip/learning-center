@@ -1,4 +1,5 @@
 <script setup>
+import { appUrl } from '@/utils/urls.js'
 import AdminLayout from '@/Layouts/AdminLayout.vue'
 import { Link } from '@inertiajs/vue3'
 </script>
@@ -22,7 +23,7 @@ import { Link } from '@inertiajs/vue3'
 
       <div class="map-grid">
 
-        <Link href="/superadmin/map/3" class="map-card" style="animation-delay: 0.1s;">
+        <Link :href="appUrl('/superadmin/map/3')" class="map-card" style="animation-delay: 0.1s;">
           <div class="card-bg-pattern"></div>
           <div class="card-body">
             <div class="icon-wrapper">
@@ -43,7 +44,7 @@ import { Link } from '@inertiajs/vue3'
           </div>
         </Link>
 
-        <Link href="/superadmin/map/1" class="map-card" style="animation-delay: 0.2s;">
+        <Link :href="appUrl('/superadmin/map/1')" class="map-card" style="animation-delay: 0.2s;">
           <div class="card-bg-pattern"></div>
           <div class="card-body">
             <div class="icon-wrapper">
@@ -64,7 +65,7 @@ import { Link } from '@inertiajs/vue3'
           </div>
         </Link>
 
-        <Link href="/superadmin/map/4" class="map-card" style="animation-delay: 0.3s;">
+        <Link :href="appUrl('/superadmin/map/4')" class="map-card" style="animation-delay: 0.3s;">
           <div class="card-bg-pattern"></div>
           <div class="card-body">
             <div class="icon-wrapper">
@@ -85,7 +86,7 @@ import { Link } from '@inertiajs/vue3'
           </div>
         </Link>
 
-        <Link href="/superadmin/map/5" class="map-card" style="animation-delay: 0.4s;">
+        <Link :href="appUrl('/superadmin/map/5')" class="map-card" style="animation-delay: 0.4s;">
           <div class="card-bg-pattern"></div>
           <div class="card-body">
             <div class="icon-wrapper">
@@ -106,7 +107,7 @@ import { Link } from '@inertiajs/vue3'
           </div>
         </Link>
 
-        <Link href="/superadmin/map/2" class="map-card" style="animation-delay: 0.5s;">
+        <Link :href="appUrl('/superadmin/map/2')" class="map-card" style="animation-delay: 0.5s;">
           <div class="card-bg-pattern"></div>
           <div class="card-body">
             <div class="icon-wrapper">

@@ -1,4 +1,5 @@
 <script setup>
+import { appUrl } from '@/utils/urls.js'
 import { usePage, Link, Head } from '@inertiajs/vue3'
 import PublicLayout from '@/Layouts/PublicLayout.vue'
 
@@ -17,7 +18,7 @@ const news = page.props.news || {}
       <div class="container" v-if="news.title">
 
         <div class="nav-bar">
-          <Link href="/news/activity" class="back-link">
+          <Link :href="appUrl('/news/activity')" class="back-link">
             <span class="icon">←</span>
             <span class="text">ย้อนกลับ</span>
           </Link>
@@ -58,7 +59,7 @@ const news = page.props.news || {}
           <div class="error-icon">🍃</div>
           <h2>ไม่พบข้อมูลข่าวสาร</h2>
           <p>ขออภัย ข้อมูลที่คุณกำลังมองหาอาจถูกลบหรือย้ายไปที่อื่นแล้ว</p>
-          <Link href="/news/activity" class="error-btn">กลับหน้าหลัก</Link>
+          <Link :href="appUrl('/news/activity')" class="error-btn">กลับหน้าหลัก</Link>
         </div>
       </div>
     </div>

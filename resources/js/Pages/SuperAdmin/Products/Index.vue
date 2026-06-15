@@ -1,4 +1,5 @@
 <script setup>
+import { appUrl } from '@/utils/urls.js'
 import AdminLayout from '@/Layouts/AdminLayout.vue'
 import { ref, computed } from 'vue'
 import { Link, router, usePage } from '@inertiajs/vue3'
@@ -68,7 +69,7 @@ const prevPage = () => { if (currentPage.value > 1) currentPage.value-- }
             <p class="subtitle">ควบคุมสต๊อกและข้อมูลสินค้าทั้งหมดของคุณด้วยความมั่นใจ</p>
           </div>
         </div>
-        <Link :href="`${rolePrefix}/products/create`" class="btn-animated">
+        <Link :href="appUrl(`${rolePrefix}/products/create`)" class="btn-animated">
           <span class="btn-icon">✨</span> เพิ่มสินค้าใหม่
         </Link>
       </div>
@@ -159,7 +160,7 @@ const prevPage = () => { if (currentPage.value > 1) currentPage.value-- }
               </td>
               <td class="text-center">
                 <div class="action-group">
-                  <Link :href="`${rolePrefix}/products/${p.id}/edit`" class="btn-icon-opaque edit" title="แก้ไข">✏️</Link>
+                  <Link :href="appUrl(`${rolePrefix}/products/${p.id}/edit`)" class="btn-icon-opaque edit" title="แก้ไข">✏️</Link>
                   <button @click="deleteProduct(p.id)" class="btn-icon-opaque delete" title="ลบ">🗑️</button>
                 </div>
               </td>

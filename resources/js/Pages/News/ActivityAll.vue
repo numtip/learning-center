@@ -1,4 +1,5 @@
 <script setup>
+import { appUrl } from '@/utils/urls.js'
 import { usePage, Link, Head } from '@inertiajs/vue3'
 import PublicLayout from '@/Layouts/PublicLayout.vue'
 import { computed, ref } from 'vue'
@@ -42,7 +43,7 @@ const truncate = (text, length) => {
       <section class="container">
         <header class="page-header-box">
           <div class="nav-bar">
-            <Link href="/" class="back-link">
+            <Link :href="appUrl('/')" class="back-link">
               <span class="icon">🏠</span>
               <span class="text">กลับหน้าแรก</span>
             </Link>
@@ -60,7 +61,7 @@ const truncate = (text, length) => {
           <Link
             v-for="item in filteredNews"
             :key="item.id"
-            :href="`/news/activity/detail/${item.id}`"
+            :href="appUrl(`/news/activity/detail/${item.id}`)"
             class="premium-card"
             :class="{ 'is-expired': activeTab === 'expired' }"
           >

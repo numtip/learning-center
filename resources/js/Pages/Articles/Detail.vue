@@ -1,4 +1,5 @@
 <script setup>
+import { appUrl } from '@/utils/urls.js'
 import { usePage, Link, Head } from '@inertiajs/vue3'
 import PublicLayout from '@/Layouts/PublicLayout.vue'
 
@@ -14,7 +15,7 @@ const { article } = usePage().props
 
       <div class="container" v-if="article">
         <div class="nav-bar">
-          <Link href="/articles" class="btn-back-organic">
+          <Link :href="appUrl('/articles')" class="btn-back-organic">
             <span class="icon">←</span> ย้อนกลับหน้าบทความ
           </Link>
           <div class="reading-tag">Knowledge Sharing</div>
@@ -53,7 +54,7 @@ const { article } = usePage().props
           <div class="icon">🍃</div>
           <h2>ไม่พบข้อมูลบทความ</h2>
           <p>ขออภัย ข้อมูลที่คุณกำลังมองหาอาจไม่มีอยู่ในระบบ</p>
-          <Link href="/articles" class="btn-retry">กลับหน้าบทความ</Link>
+          <Link :href="appUrl('/articles')" class="btn-retry">กลับหน้าบทความ</Link>
         </div>
       </div>
     </div>

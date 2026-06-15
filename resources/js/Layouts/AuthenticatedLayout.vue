@@ -3,7 +3,7 @@ import { ref, onMounted, onUnmounted, computed, watch } from 'vue'
 import { Link, usePage, router } from '@inertiajs/vue3'
 import { route } from 'ziggy-js'
 import Swal from 'sweetalert2'
-import { assetUrl } from '@/utils/urls.js'
+import { appUrl, assetUrl } from '@/utils/urls.js'
 
 const page = usePage()
 const user = computed(() => page.props.auth?.user)
@@ -85,7 +85,7 @@ onUnmounted(() => {
         <div class="nav-inner">
 
           <div class="logo-wrapper-left">
-            <Link href="/" class="nav-logo group-logo">
+            <Link :href="appUrl('/')" class="nav-logo group-logo">
               <div class="logo-img-wrapper">
                 <img :src="logoUrl" alt="Logo" class="logo-img" />
                 <div class="logo-glow"></div>
@@ -104,7 +104,7 @@ onUnmounted(() => {
           </button>
 
           <ul class="nav-menu desktop-menu">
-            <li><Link href="/" class="nav-link">หน้าแรก</Link></li>
+            <li><Link :href="appUrl('/')" class="nav-link">หน้าแรก</Link></li>
 
             <li class="relative group">
               <span class="nav-link cursor-pointer flex items-center gap-1.5">
@@ -119,21 +119,21 @@ onUnmounted(() => {
                         <span class="icon-box text-yellow-500 bg-yellow-50"><svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg></span>
                         ข้อมูลทั่วไป
                       </li>
-                      <li><Link href="/about/history" class="dropdown-item">ความเป็นมา</Link></li>
-                        <!-- เมนูเกี่ยวกับหน่วยงาน<li><Link href="/about/vision" class="dropdown-item">ปรัชญา วิสัยทัศน์ และพันธกิจ</Link></li>
-                      <li><Link href="/about/structure" class="dropdown-item">โครงสร้างองค์กร</Link></li> -->
-                      <li><Link href="/about/addmin" class="dropdown-item">บุคลากรและเจ้าหน้าที่</Link></li>
+                      <li><Link :href="appUrl('/about/history')" class="dropdown-item">ความเป็นมา</Link></li>
+                        <!-- เมนูเกี่ยวกับหน่วยงาน<li><Link :href="appUrl('/about/vision')" class="dropdown-item">ปรัชญา วิสัยทัศน์ และพันธกิจ</Link></li>
+                      <li><Link :href="appUrl('/about/structure')" class="dropdown-item">โครงสร้างองค์กร</Link></li> -->
+                      <li><Link :href="appUrl('/about/addmin')" class="dropdown-item">บุคลากรและเจ้าหน้าที่</Link></li>
                     </div>
                     <div>
                       <li class="dropdown-header">
                         <span class="icon-box text-green-600 bg-green-50"><svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4"></path></svg></span>
                         ความเป็นมาของศูนย์เรียนรู้
                       </li>
-                      <li><Link href="/center-detail/lanna" class="dropdown-item">ศูนย์เรียนรู้วัฒนธรรมเกษตรล้านนา</Link></li>
-                      <li><Link href="/center-detail/royal" class="dropdown-item">ศูนย์การเรียนรู้เกษตรทฤษฎีใหม่</Link></li>
-                      <li><Link href="/center-detail/banpong" class="dropdown-item">ศูนย์เรียนรู้พัฒนาบ้านโปง</Link></li>
-                      <li><Link href="/center-detail/hemp" class="dropdown-item">ศูนย์ทดสอบและพัฒนากัญชง</Link></li>
-                      <li><Link href="/center-detail/farm" class="dropdown-item">ฟาร์มสาธิตสำนักวิจัยฯ</Link></li>
+                      <li><Link :href="appUrl('/center-detail/lanna')" class="dropdown-item">ศูนย์เรียนรู้วัฒนธรรมเกษตรล้านนา</Link></li>
+                      <li><Link :href="appUrl('/center-detail/royal')" class="dropdown-item">ศูนย์การเรียนรู้เกษตรทฤษฎีใหม่</Link></li>
+                      <li><Link :href="appUrl('/center-detail/banpong')" class="dropdown-item">ศูนย์เรียนรู้พัฒนาบ้านโปง</Link></li>
+                      <li><Link :href="appUrl('/center-detail/hemp')" class="dropdown-item">ศูนย์ทดสอบและพัฒนากัญชง</Link></li>
+                      <li><Link :href="appUrl('/center-detail/farm')" class="dropdown-item">ฟาร์มสาธิตสำนักวิจัยฯ</Link></li>
                     </div>
                   </div>
                 </ul>
@@ -147,11 +147,11 @@ onUnmounted(() => {
               </span>
               <div class="dropdown-wrapper">
                 <ul class="dropdown-content standard-dropdown">
-                  <li><Link href="/center/lanna" class="dropdown-item">ศูนย์เรียนรู้วัฒนธรรมเกษตรล้านนา</Link></li>
-                  <li><Link href="/center/royal" class="dropdown-item">ศูนย์การเรียนรู้เกษตรทฤษฎีใหม่</Link></li>
-                  <li><Link href="/center/banpong" class="dropdown-item">ศูนย์เรียนรู้พัฒนาบ้านโปง</Link></li>
-                  <li><Link href="/center/hemp" class="dropdown-item">ศูนย์ทดสอบ วิจัยและพัฒนากัญชง</Link></li>
-                  <li><Link href="/center/farm" class="dropdown-item">ฟาร์มสาธิตสำนักวิจัยฯ</Link></li>
+                  <li><Link :href="appUrl('/center/lanna')" class="dropdown-item">ศูนย์เรียนรู้วัฒนธรรมเกษตรล้านนา</Link></li>
+                  <li><Link :href="appUrl('/center/royal')" class="dropdown-item">ศูนย์การเรียนรู้เกษตรทฤษฎีใหม่</Link></li>
+                  <li><Link :href="appUrl('/center/banpong')" class="dropdown-item">ศูนย์เรียนรู้พัฒนาบ้านโปง</Link></li>
+                  <li><Link :href="appUrl('/center/hemp')" class="dropdown-item">ศูนย์ทดสอบ วิจัยและพัฒนากัญชง</Link></li>
+                  <li><Link :href="appUrl('/center/farm')" class="dropdown-item">ฟาร์มสาธิตสำนักวิจัยฯ</Link></li>
                 </ul>
               </div>
             </li>
@@ -200,7 +200,7 @@ onUnmounted(() => {
                   <div class="dropdown-wrapper right-0">
                     <ul class="dropdown-content standard-dropdown min-w-[200px]">
                       <li>
-                        <Link href="/profile" class="dropdown-item flex items-center gap-2">
+                        <Link :href="appUrl('/profile')" class="dropdown-item flex items-center gap-2">
                           <svg class="w-4 h-4 text-green-600" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z"></path></svg>
                           โปรไฟล์ของฉัน
                         </Link>
@@ -219,7 +219,7 @@ onUnmounted(() => {
 
               <template v-else>
                 <li>
-                  <Link href="/login" class="login-btn">
+                  <Link :href="appUrl('/login')" class="login-btn">
                     <span class="btn-text">เข้าสู่ระบบ / สมัครสมาชิก</span>
                     <div class="btn-glow"></div>
                   </Link>
@@ -240,29 +240,29 @@ onUnmounted(() => {
               <div class="avatar-circle-large">{{ user.name.charAt(0).toUpperCase() }}</div>
               <div>
                 <div class="text-green-900 font-bold text-xl">{{ user.name }}</div>
-                <Link href="/profile" class="text-yellow-600 text-sm font-semibold hover:text-yellow-500">จัดการโปรไฟล์</Link>
+                <Link :href="appUrl('/profile')" class="text-yellow-600 text-sm font-semibold hover:text-yellow-500">จัดการโปรไฟล์</Link>
               </div>
             </div>
             <button @click="logout" class="mobile-logout-btn">ออกจากระบบ</button>
           </template>
           <template v-else>
-            <Link href="/login" class="mobile-login-btn">เข้าสู่ระบบ / สมัครสมาชิก</Link>
+            <Link :href="appUrl('/login')" class="mobile-login-btn">เข้าสู่ระบบ / สมัครสมาชิก</Link>
           </template>
         </div>
 
         <ul class="mobile-nav-links">
-          <li><Link href="/" class="mobile-link"><span class="icon">🏠</span> หน้าแรก</Link></li>
+          <li><Link :href="appUrl('/')" class="mobile-link"><span class="icon">🏠</span> หน้าแรก</Link></li>
 
           <li class="mobile-divider">เกี่ยวกับเรา</li>
-          <li><Link href="/about/history" class="mobile-link pl-8">ความเป็นมา</Link></li>
-          <li><Link href="/about/addmin" class="mobile-link pl-8">บุคลากร</Link></li>
+          <li><Link :href="appUrl('/about/history')" class="mobile-link pl-8">ความเป็นมา</Link></li>
+          <li><Link :href="appUrl('/about/addmin')" class="mobile-link pl-8">บุคลากร</Link></li>
 
           <li class="mobile-divider">ศูนย์การเรียนรู้</li>
-          <li><Link href="/center/lanna" class="mobile-link pl-8">ศูนย์วัฒนธรรมเกษตรล้านนา</Link></li>
-          <li><Link href="/center/royal" class="mobile-link pl-8">ศูนย์เกษตรทฤษฎีใหม่</Link></li>
-          <li><Link href="/center/banpong" class="mobile-link pl-8">ศูนย์พัฒนาบ้านโปง</Link></li>
-          <li><Link href="/center/hemp" class="mobile-link pl-8">ศูนย์วิจัยกัญชง</Link></li>
-          <li><Link href="/center/farm" class="mobile-link pl-8">ฟาร์มสาธิตฯ</Link></li>
+          <li><Link :href="appUrl('/center/lanna')" class="mobile-link pl-8">ศูนย์วัฒนธรรมเกษตรล้านนา</Link></li>
+          <li><Link :href="appUrl('/center/royal')" class="mobile-link pl-8">ศูนย์เกษตรทฤษฎีใหม่</Link></li>
+          <li><Link :href="appUrl('/center/banpong')" class="mobile-link pl-8">ศูนย์พัฒนาบ้านโปง</Link></li>
+          <li><Link :href="appUrl('/center/hemp')" class="mobile-link pl-8">ศูนย์วิจัยกัญชง</Link></li>
+          <li><Link :href="appUrl('/center/farm')" class="mobile-link pl-8">ฟาร์มสาธิตฯ</Link></li>
 
           <li class="mobile-divider">การบริการ</li>
           <li><a @click.prevent="requireLogin('/service/booking')" class="mobile-link pl-8 highlight">📅 การจองศูนย์การเรียนรู้</a></li>

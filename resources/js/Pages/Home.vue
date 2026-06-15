@@ -1,4 +1,5 @@
 <script setup>
+import { appUrl } from '@/utils/urls.js'
 import { ref, onMounted, onBeforeUnmount, computed } from 'vue'
 import { usePage, Link, Head } from '@inertiajs/vue3'
 import PublicLayout from '@/Layouts/PublicLayout.vue'
@@ -236,7 +237,7 @@ const scrollToTop = () => {
                   สังกัด สำนักวิจัยและส่งเสริมวิชาการการเกษตร<br>
                   จัดตั้งขึ้นเพื่อเป็นแหล่งเรียนรู้และถ่ายทอดองค์ความรู้ด้านการจัดการทรัพยากรการเกษตร ตามแนวทาง “เกษตรทฤษฎีใหม่”
                 </p>
-                <Link href="/center/royal" class="btn-explore" aria-label="ดูรายละเอียดศูนย์การเรียนรู้เกษตรทฤษฎีใหม่"><span>ดูรายละเอียด</span></Link>
+                <Link :href="appUrl('/center/royal')" class="btn-explore" aria-label="ดูรายละเอียดศูนย์การเรียนรู้เกษตรทฤษฎีใหม่"><span>ดูรายละเอียด</span></Link>
               </div>
             </div>
           </div>
@@ -250,7 +251,7 @@ const scrollToTop = () => {
                   สังกัด สำนักวิจัยและส่งเสริมวิชาการการเกษตร<br>
                   ก่อตั้งเมื่อวันที่ 21 มิถุนายน พ.ศ. 2555 เพื่ออนุรักษ์และสืบสานวัฒนธรรมการเกษตรพื้นบ้านล้านนา
                 </p>
-                <Link href="/center/lanna" class="btn-explore" aria-label="ดูรายละเอียดศูนย์เรียนรู้วัฒนธรรมเกษตรล้านนา"><span>ดูรายละเอียด</span></Link>
+                <Link :href="appUrl('/center/lanna')" class="btn-explore" aria-label="ดูรายละเอียดศูนย์เรียนรู้วัฒนธรรมเกษตรล้านนา"><span>ดูรายละเอียด</span></Link>
               </div>
             </div>
             <div class="chapter-visual">
@@ -276,7 +277,7 @@ const scrollToTop = () => {
                   สังกัด สำนักวิจัยและส่งเสริมวิชาการการเกษตร<br>
                   จัดตั้งขึ้นเพื่อเป็นแหล่งเรียนรู้และสาธิตด้านการเกษตรแบบครบวงจร สนับสนุนภารกิจด้านการเรียนการสอน
                 </p>
-                <Link href="/center/farm" class="btn-explore" aria-label="ดูรายละเอียดฟาร์มสาธิตสำนักวิจัยฯ"><span>ดูรายละเอียด</span></Link>
+                <Link :href="appUrl('/center/farm')" class="btn-explore" aria-label="ดูรายละเอียดฟาร์มสาธิตสำนักวิจัยฯ"><span>ดูรายละเอียด</span></Link>
               </div>
             </div>
           </div>
@@ -290,7 +291,7 @@ const scrollToTop = () => {
                   จังหวัดเชียงใหม่<br>
                   เกิดขึ้นจากพระราชดำริของพระบาทสมเด็จพระบรมชนกาธิเบศร มหาภูมิพลอดุลยเดชมหาราช บรมนาถบพิตร (รัชกาลที่ 9)
                 </p>
-                <Link href="/center/banpong" class="btn-explore" aria-label="ดูรายละเอียดโครงการพัฒนาบ้านโปง"><span>ดูรายละเอียด</span></Link>
+                <Link :href="appUrl('/center/banpong')" class="btn-explore" aria-label="ดูรายละเอียดโครงการพัฒนาบ้านโปง"><span>ดูรายละเอียด</span></Link>
               </div>
             </div>
             <div class="chapter-visual">
@@ -315,7 +316,7 @@ const scrollToTop = () => {
                 <p>
                   ศูนย์กลางความเป็นเลิศด้านการวิจัยและพัฒนากัญชงครบวงจร ตั้งแต่การปลูก การแปรรูป จนถึงการพัฒนาผลิตภัณฑ์ เพื่อประโยชน์ทางการแพทย์และอุตสาหกรรม
                 </p>
-                <Link href="/center/hemp" class="btn-explore" aria-label="ดูรายละเอียดศูนย์วิจัยและพัฒนากัญชง">
+                <Link :href="appUrl('/center/hemp')" class="btn-explore" aria-label="ดูรายละเอียดศูนย์วิจัยและพัฒนากัญชง">
                   <span>ดูรายละเอียด</span>
                 </Link>
               </div>
@@ -370,7 +371,7 @@ const scrollToTop = () => {
         </div>
 
         <div style="text-align: center; margin-top: 40px;">
-          <Link href="/service/booking" class="btn-explore-large" aria-label="ไปยังหน้าจองคอร์สกิจกรรม">
+          <Link :href="appUrl('/service/booking')" class="btn-explore-large" aria-label="ไปยังหน้าจองคอร์สกิจกรรม">
             <span>📅 ทำการจองคอร์สกิจกรรมทันที</span>
           </Link>
         </div>
@@ -383,7 +384,7 @@ const scrollToTop = () => {
         </div>
         <div class="slider-viewport pb-40">
           <div class="slider-track" :class="{ reset: prIndex === 0 }" :style="{ transform: `translateX(-${prIndex * 380}px)` }">
-            <Link v-for="item in prNews" :key="'pr-'+item.id" :href="`/news/pr/detail/${item.id}`" class="magazine-card news" :aria-label="'อ่านข่าว: ' + item.title">
+            <Link v-for="item in prNews" :key="'pr-'+item.id" :href="appUrl(`/news/pr/detail/${item.id}`)" class="magazine-card news" :aria-label="'อ่านข่าว: ' + item.title">
               <div class="mag-img"><img :src="item.image || '/no-image.jpg'" :alt="item.title || 'ภาพข่าวประชาสัมพันธ์'" loading="lazy" decoding="async" /></div>
               <div class="mag-content">
                 <span class="mag-date">{{ new Date(item.created_at || Date.now()).toLocaleDateString('th-TH') }}</span>
@@ -391,7 +392,7 @@ const scrollToTop = () => {
                 <div class="mag-readmore">อ่านเนื้อหา <span>→</span></div>
               </div>
             </Link>
-            <Link v-for="item in prNews.slice(0,3)" :key="'pr-clone-'+item.id" :href="`/news/pr/detail/${item.id}`" class="magazine-card news" aria-hidden="true" tabindex="-1">
+            <Link v-for="item in prNews.slice(0,3)" :key="'pr-clone-'+item.id" :href="appUrl(`/news/pr/detail/${item.id}`)" class="magazine-card news" aria-hidden="true" tabindex="-1">
               <div class="mag-img"><img :src="item.image || '/no-image.jpg'" :alt="item.title || 'ภาพข่าวประชาสัมพันธ์'" loading="lazy" decoding="async" /></div>
               <div class="mag-content">
                 <span class="mag-date">{{ new Date(item.created_at || Date.now()).toLocaleDateString('th-TH') }}</span>
@@ -411,7 +412,7 @@ const scrollToTop = () => {
           </div>
           <div class="slider-viewport">
             <div class="slider-track" :class="{ reset: centerPromoIndex === 0 }" :style="{ transform: `translateX(-${centerPromoIndex * 380}px)` }">
-              <Link v-for="item in centerPromotions" :key="'center-'+item.id" href="/service/booking" class="magazine-card promo" :aria-label="'ดูแพ็กเกจ: ' + item.title">
+              <Link v-for="item in centerPromotions" :key="'center-'+item.id" :href="appUrl('/service/booking')" class="magazine-card promo" :aria-label="'ดูแพ็กเกจ: ' + item.title">
                 <div class="mag-img"><img :src="item.image || '/no-image.jpg'" :alt="item.title || 'ภาพแพ็กเกจ'" loading="lazy" decoding="async" /></div>
                 <div class="mag-overlay green-gradient">
                   <span class="mag-badge">แพ็กเกจเรียนรู้</span>
@@ -419,7 +420,7 @@ const scrollToTop = () => {
                   <p>{{ item.description }}</p>
                 </div>
               </Link>
-              <Link v-for="item in centerPromotions.slice(0,3)" :key="'center-clone-'+item.id" href="/service/booking" class="magazine-card promo" aria-hidden="true" tabindex="-1">
+              <Link v-for="item in centerPromotions.slice(0,3)" :key="'center-clone-'+item.id" :href="appUrl('/service/booking')" class="magazine-card promo" aria-hidden="true" tabindex="-1">
                 <div class="mag-img"><img :src="item.image || '/no-image.jpg'" :alt="item.title || 'ภาพแพ็กเกจ'" loading="lazy" decoding="async" /></div>
                 <div class="mag-overlay green-gradient">
                   <span class="mag-badge">แพ็กเกจเรียนรู้</span>
@@ -438,7 +439,7 @@ const scrollToTop = () => {
           </div>
           <div class="slider-viewport">
             <div class="slider-track" :class="{ reset: productPromoIndex === 0 }" :style="{ transform: `translateX(-${productPromoIndex * 380}px)` }">
-              <Link v-for="item in productPromotions" :key="'product-'+item.id" href="/service/products" class="magazine-card promo" :aria-label="'ดูสินค้า: ' + item.title">
+              <Link v-for="item in productPromotions" :key="'product-'+item.id" :href="appUrl('/service/products')" class="magazine-card promo" :aria-label="'ดูสินค้า: ' + item.title">
                 <div class="mag-img"><img :src="item.image || '/no-image.jpg'" :alt="item.title || 'ภาพสินค้า'" loading="lazy" decoding="async" /></div>
                 <div class="mag-overlay gold-gradient">
                   <span class="mag-badge gold">สินค้าแนะนำ</span>
@@ -446,7 +447,7 @@ const scrollToTop = () => {
                   <p>{{ item.description }}</p>
                 </div>
               </Link>
-              <Link v-for="item in productPromotions.slice(0,3)" :key="'product-clone-'+item.id" href="/service/products" class="magazine-card promo" aria-hidden="true" tabindex="-1">
+              <Link v-for="item in productPromotions.slice(0,3)" :key="'product-clone-'+item.id" :href="appUrl('/service/products')" class="magazine-card promo" aria-hidden="true" tabindex="-1">
                 <div class="mag-img"><img :src="item.image || '/no-image.jpg'" :alt="item.title || 'ภาพสินค้า'" loading="lazy" decoding="async" /></div>
                 <div class="mag-overlay gold-gradient">
                   <span class="mag-badge gold">สินค้าแนะนำ</span>
@@ -467,7 +468,7 @@ const scrollToTop = () => {
           </div>
           <div class="slider-viewport pb-40">
             <div class="slider-track" :class="{ reset: actIndex === 0 }" :style="{ transform: `translateX(-${actIndex * 380}px)` }">
-              <Link v-for="item in actNews" :key="'act-'+item.id" :href="item.type === 'pr' ? `/news/pr/detail/${item.id}` : `/news/activity/detail/${item.id}`" class="magazine-card news" :aria-label="'อ่านกิจกรรม: ' + item.title">
+              <Link v-for="item in actNews" :key="'act-'+item.id" :href="appUrl(item.type === 'pr' ? `/news/pr/detail/${item.id}` : `/news/activity/detail/${item.id}`)" class="magazine-card news" :aria-label="'อ่านกิจกรรม: ' + item.title">
                 <div class="mag-img"><img :src="item.image || '/no-image.jpg'" :alt="item.title || 'ภาพข่าวกิจกรรม'" loading="lazy" decoding="async" /></div>
                 <div class="mag-content">
                   <span class="mag-date">{{ new Date(item.created_at || Date.now()).toLocaleDateString('th-TH') }}</span>
@@ -475,7 +476,7 @@ const scrollToTop = () => {
                   <div class="mag-readmore">อ่านเนื้อหา <span>→</span></div>
                 </div>
               </Link>
-              <Link v-for="item in actNews.slice(0,3)" :key="'act-clone-'+item.id" :href="item.type === 'pr' ? `/news/pr/detail/${item.id}` : `/news/activity/detail/${item.id}`" class="magazine-card news" aria-hidden="true" tabindex="-1">
+              <Link v-for="item in actNews.slice(0,3)" :key="'act-clone-'+item.id" :href="appUrl(item.type === 'pr' ? `/news/pr/detail/${item.id}` : `/news/activity/detail/${item.id}`)" class="magazine-card news" aria-hidden="true" tabindex="-1">
                 <div class="mag-img"><img :src="item.image || '/no-image.jpg'" :alt="item.title || 'ภาพข่าวกิจกรรม'" loading="lazy" decoding="async" /></div>
                 <div class="mag-content">
                   <span class="mag-date">{{ new Date(item.created_at || Date.now()).toLocaleDateString('th-TH') }}</span>
@@ -494,7 +495,7 @@ const scrollToTop = () => {
           </div>
           <div class="slider-viewport pb-80">
             <div class="slider-track" :class="{ reset: artIndex === 0 }" :style="{ transform: `translateX(-${artIndex * 380}px)` }">
-              <Link v-for="item in articles" :key="'art-'+item.id" :href="`/articles/${item.id}`" class="magazine-card news" :aria-label="'อ่านบทความ: ' + item.title">
+              <Link v-for="item in articles" :key="'art-'+item.id" :href="appUrl(`/articles/${item.id}`)" class="magazine-card news" :aria-label="'อ่านบทความ: ' + item.title">
                 <div class="mag-img"><img :src="item.image || '/no-image.jpg'" :alt="item.title || 'ภาพบทความ'" loading="lazy" decoding="async" /></div>
                 <div class="mag-content">
                   <span class="mag-date">บทความความรู้</span>
@@ -502,7 +503,7 @@ const scrollToTop = () => {
                   <div class="mag-readmore">อ่านเนื้อหา <span>→</span></div>
                 </div>
               </Link>
-              <Link v-for="item in articles.slice(0,3)" :key="'art-clone-'+item.id" :href="`/articles/${item.id}`" class="magazine-card news" aria-hidden="true" tabindex="-1">
+              <Link v-for="item in articles.slice(0,3)" :key="'art-clone-'+item.id" :href="appUrl(`/articles/${item.id}`)" class="magazine-card news" aria-hidden="true" tabindex="-1">
                 <div class="mag-img"><img :src="item.image || '/no-image.jpg'" :alt="item.title || 'ภาพบทความ'" loading="lazy" decoding="async" /></div>
                 <div class="mag-content">
                   <span class="mag-date">บทความความรู้</span>

@@ -10,7 +10,7 @@
                 <h1 class="page-title">ประวัติการจองทั้งหมด</h1>
                 <p class="page-subtitle">รายการแจ้งความประสงค์เข้าชมศูนย์การเรียนรู้ของคุณ</p>
             </div>
-            <Link href="/service/booking" class="btn-back">
+            <Link :href="appUrl('/service/booking')" class="btn-back">
                 <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="19" y1="12" x2="5" y2="12"></line><polyline points="12 19 5 12 12 5"></polyline></svg>
                 กลับไปหน้าจอง
             </Link>
@@ -97,6 +97,7 @@
 </template>
 
 <script setup>
+import { appUrl } from '@/utils/urls.js'
 import { ref, computed } from 'vue'
 import { Head, usePage, Link } from '@inertiajs/vue3'
 import PublicLayout from '@/Layouts/PublicLayout.vue'

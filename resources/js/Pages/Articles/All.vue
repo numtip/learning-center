@@ -1,4 +1,5 @@
 <script setup>
+import { appUrl } from '@/utils/urls.js'
 import { usePage, Link, Head } from '@inertiajs/vue3'
 import PublicLayout from '@/Layouts/PublicLayout.vue'
 import { computed } from 'vue'
@@ -21,7 +22,7 @@ const truncate = (text, length) => {
       <section class="wrapper">
         <header class="page-header">
           <div class="nav-top">
-            <Link href="/" class="btn-home-glass">
+            <Link :href="appUrl('/')" class="btn-home-glass">
               <span class="icon">🏠</span> หน้าแรก
             </Link>
           </div>
@@ -34,7 +35,7 @@ const truncate = (text, length) => {
           <Link
             v-for="item in articles"
             :key="item.id"
-            :href="`/articles/${item.id}`"
+            :href="appUrl(`/articles/${item.id}`)"
             class="article-card-premium"
           >
             <div class="card-thumb">
